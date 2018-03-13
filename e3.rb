@@ -7,8 +7,7 @@ class ProductoCartesiano
   def producto
     @arreglo1.each do |i|
       @arreglo2.each do |j|
-        arreglo = [i, j]
-        puts arreglo.to_s
+        puts [i,j].to_s
       end
     end
   end
