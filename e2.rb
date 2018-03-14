@@ -27,17 +27,71 @@ class Moneda
 
   # Convertir la moneda
   def en id
-    case id
-      when :dolares
-        return Dolar.new@valor*10
-      when :yens
-        return Yen.new@valor*10
-      when :euros
-        return Euro.new@valor*10
-      when :bolivares
-        return Bolivar.new@valor*216164.85
-      when :bitcoins
-        return Bitcoin.new@valor*10
+    if self.class.to_s == "Dolar"
+      case id
+        when :dolares
+          return Dolar.new@valor*1
+        when :yens
+          return Yen.new@valor*106.56
+        when :euros
+          return Euro.new@valor*0.80
+        when :bolivares
+          return Bolivar.new@valor*216164.85
+        when :bitcoins
+          return Bitcoin.new@valor*0.000108
+      end
+    elsif self.class.to_s == "Yen"
+      case id
+        when :dolares
+          return Dolar.new@valor*0.00938
+        when :yens
+          return Yen.new@valor*1
+        when :euros
+          return Euro.new@valor*	0.00757
+        when :bolivares
+          return Bolivar.new@valor*2027.62
+        when :bitcoins
+          return Bitcoin.new@valor*0.0000010
+      end
+    elsif self.class.to_s == "Euro"
+      case id
+        when :dolares
+          return Dolar.new@valor*	1.23
+        when :yens
+          return Yen.new@valor*132.10
+        when :euros
+          return Euro.new@valor*1
+        when :bolivares
+          return Bolivar.new@valor*268169.76
+        when :bitcoins
+          return Bitcoin.new@valor*0.00013
+      end
+    elsif self.class.to_s == "Bolivar"
+      case id
+        when :dolares
+          return Dolar.new@valor*0.00000462609
+        when :yens
+          return Yen.new@valor*0.00049298978
+        when :euros
+          return Euro.new@valor*0.00000372898
+        when :bolivares
+          return Bolivar.new@valor*1
+        when :bitcoins
+          return Bitcoin.new@valor*0.00000000049961772
+      end
+    elsif self.class.to_s == "Bitcoin"
+      case id
+        when :dolares
+          return Dolar.new@valor*9315.86
+        when :yens
+          return Yen.new@valor*992528.49
+        when :euros
+          return Euro.new@valor*7862.07
+        when :bolivares
+          return Bolivar.new@valor*2013761479.52
+        when :bitcoins
+          return Bitcoin.new@valor*1
+      end
     end
   end
   # Compara las monedas
@@ -86,5 +140,11 @@ class Bitcoin < Moneda
 end
 
 # Probando
-x = 12.2.dolares.en(:bolivares)
+z = Dolar.new 1.0
+puts z.class.to_s
+t = z.en(:bolivares)
+puts t.valor
+x = 1.0.dolares.en(:bolivares)
+y = 216164.85.bolivares.en(:dolares)
 puts x.valor
+puts y.valor
