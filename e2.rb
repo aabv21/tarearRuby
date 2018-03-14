@@ -94,20 +94,26 @@ class Moneda
       end
     end
   end
-  # Compara las monedas
-  #def comparar monedaAComparar
-    #monedaAComparar.compararAux(self)
-    #Instruccion de comparacion
-  #end
-  # Auxiliar de la funcion comparar
-  #def compararAux monedaAComparar
-    #valor = monedaAComparar.en(:bolivares)
-  #end
 end
 # Subclase Yen
 class Dolar < Moneda
   def initialize arg
     super arg
+  end
+  # Compara las monedas
+  def comparar otraMoneda
+    otraMoneda.compararAux self
+  end
+  # Auxiliar de la funcion comparar
+  def compararAux otraMoneda
+    otroValor = otraMoneda.en(:dolares).valor
+    if otroValor < @valor
+      return :menor
+    elsif otroValor == @valor
+      return :igual
+    else
+      return :mayor
+    end
   end
 end
 
@@ -116,12 +122,42 @@ class Yen < Moneda
   def initialize arg
     super arg
   end
+  # Compara las monedas
+  def comparar otraMoneda
+    otraMoneda.compararAux self
+  end
+  # Auxiliar de la funcion comparar
+  def compararAux otraMoneda
+    otroValor = otraMoneda.en(:yens).valor
+    if otroValor < @valor
+      return :menor
+    elsif otroValor == @valor
+      return :igual
+    else
+      return :mayor
+    end
+  end
 end
 
 # Subclase Euro
 class Euro < Moneda
   def initialize arg
     super arg
+  end
+  # Compara las monedas
+  def comparar otraMoneda
+    otraMoneda.compararAux self
+  end
+  # Auxiliar de la funcion comparar
+  def compararAux otraMoneda
+    otroValor = otraMoneda.en(:euros).valor
+    if otroValor < @valor
+      return :menor
+    elsif otroValor == @valor
+      return :igual
+    else
+      return :mayor
+    end
   end
 end
 
@@ -130,12 +166,42 @@ class Bolivar < Moneda
   def initialize arg
     super arg
   end
+  # Compara las monedas
+  def comparar otraMoneda
+    otraMoneda.compararAux self
+  end
+  # Auxiliar de la funcion comparar
+  def compararAux otraMoneda
+    otroValor = otraMoneda.en(:bolivares).valor
+    if otroValor < @valor
+      return :menor
+    elsif otroValor == @valor
+      return :igual
+    else
+      return :mayor
+    end
+  end
 end
 
 # Subclase Bitcoin
 class Bitcoin < Moneda
   def initialize arg
     super arg
+  end
+  # Compara las monedas
+  def comparar otraMoneda
+    otraMoneda.compararAux self
+  end
+  # Auxiliar de la funcion comparar
+  def compararAux otraMoneda
+    otroValor = otraMoneda.en(:bitcoins).valor
+    if otroValor < @valor
+      return :menor
+    elsif otroValor == @valor
+      return :igual
+    else
+      return :mayor
+    end
   end
 end
 
@@ -145,6 +211,10 @@ puts z.class.to_s
 t = z.en(:bolivares)
 puts t.valor
 x = 1.0.dolares.en(:bolivares)
-y = 216164.85.bolivares.en(:dolares)
+y = 216500.0.bolivares.en(:dolares)
 puts x.valor
 puts y.valor
+
+t = 216500.0.bolivares.comparar(1.0.dolares)
+k = 1.0.bitcoins.comparar(8000.0.euros)
+puts k.to_s
