@@ -9,17 +9,15 @@ class ProductoCartesiano
 
   # Metodo que llevará a cabo el producto cartesiano y lo imprimirá en pantalla
   def producto
-    @arreglo1.each do |i|
-      @arreglo2.each do |j|
-        puts [i,j].to_s
-      end
-    end
+    @arreglo1.each { |i| @arreglo2.each { |j| yield [i,j] } }
   end
-
 end
 
 # Corrida del programa
 A = ['a','b','c']
 B = [4,5,6]
 prod = ProductoCartesiano.new A, B
-prod.producto
+prod.producto do
+  |x| print x
+  puts
+end
