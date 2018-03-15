@@ -285,11 +285,11 @@ end
 # Corrida del programa
 
 # Probando la conversion de clases
-puts 1.0.dolares.class.to_s
-puts 1.0.euros.class.to_s
-puts 1.0.yens.class.to_s
-puts 1.0.bitcoins.class.to_s
-puts 1.0.bolivares.class.to_s
+puts 1.0.dolares.class
+puts 1.0.euros.class
+puts 1.0.yens.class
+puts 1.0.bitcoins.class
+puts 1.0.bolivares.class
 puts ""
 
 # Probando el metodo 'en'
