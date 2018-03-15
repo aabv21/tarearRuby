@@ -22,7 +22,7 @@ class Circulo
 
   # Metodo que calcula y retorna el area del Circulo
   def area
-    3.14 * (@radio**2)
+    Math::PI * (@radio**2)
   end
 end
 
@@ -51,7 +51,7 @@ class Cilindro < Circulo
 
   # Metodo que calcula y retorna el volumen del Cilindro
   def volumen
-    3.14*(@radio**2)*@altura
+    Math::PI*(@radio**2)*@altura
   end
 end
 
