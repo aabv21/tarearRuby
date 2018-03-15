@@ -1,3 +1,10 @@
+=begin
+  Ejercicio #3 de La Tarea 1 sobre Ruby
+  Autores: Andrés Buelvas 13-10184
+          Miguel Canedo 13-10214
+  Fecha: 14/03/18
+=end
+
 # Clase ProductoCartesiano
 class ProductoCartesiano
 

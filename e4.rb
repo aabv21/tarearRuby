@@ -1,3 +1,10 @@
+=begin
+  Ejercicio #4 de La Tarea 1 sobre Ruby
+  Autores: Andrés Buelvas 13-10184
+          Miguel Canedo 13-10214
+  Fecha: 14/03/18
+=end
+
 # Modulo DFS donde se generalizan dos metodos para las clases
 # ArbolBinario y GrafoDirigido.
 module DFS
