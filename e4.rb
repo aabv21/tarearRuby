@@ -177,7 +177,7 @@ class GrafoDirigido
     @vertices << Vertice.new(dato)
   end
 
-  # Metodo que agrega un Lado desde el Vertice 'origen'
+  # Metodo que agrega una Arista desde el Vertice 'origen'
   # hasta Vertice 'destino'.
   def agregarArista(origen, destino)
     desde = vertices.index { |v| v.dato == origen }
@@ -186,10 +186,11 @@ class GrafoDirigido
     vertices[desde].vecinos << vertices[hasta]
   end
 
-  # Metodo que devuleve la representacion en String de la clase GrafoNoDirigido.
+  # Metodo que devuleve la representacion en String de la clase GrafoDirigido.
   def to_s
-    s = "Grafo No Dirigido: "
+    s = "Grafo Dirigido: "
     vertices.each { |v| s += v.to_s }
+    s
   end
 end
 
