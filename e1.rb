@@ -17,12 +17,12 @@ class Circulo
 
   # Metodo que permite obtener el radio del Circulo
   def get_radio
-    return @radio
+    @radio
   end
 
   # Metodo que calcula y retorna el area del Circulo
   def area
-    return 3.14 * (@radio**2)
+    3.14 * (@radio**2)
   end
 end
 
@@ -46,12 +46,12 @@ class Cilindro < Circulo
 
   # Metodo que retorna la altura del Cilindro
   def get_altura
-    return @altura
+    @altura
   end
 
   # Metodo que calcula y retorna el volumen del Cilindro
   def volumen
-    return 3.14*(@radio**2)*@altura
+    3.14*(@radio**2)*@altura
   end
 end
 
