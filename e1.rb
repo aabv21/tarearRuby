@@ -10,7 +10,7 @@ class Circulo
 
   # Constructor de la clase Circulo
   def initialize radio
-    if radio <= 0
+    if radio < 0
       raise 'Radio Invalido'
     else
       @radio = radio
@@ -19,7 +19,7 @@ class Circulo
 
   # Metodo que permite colocar el radio al Circulo
   def set_radio radio
-    if radio <= 0
+    if radio < 0
       raise 'Radio Invalido'
     else
       @radio = radio
@@ -43,7 +43,7 @@ class Cilindro < Circulo
   # Constructor de la Clase Cilindro
   def initialize radio, altura
     super radio
-    if altura <= 0
+    if altura < 0
       raise 'Altura Invalido'
     else
       @altura = altura
@@ -52,7 +52,7 @@ class Cilindro < Circulo
 
   # Metodo que permite colocar la altura al Cilindro
   def set_altura altura
-    if altura <= 0
+    if altura < 0
       raise 'Altura Invalido'
     else
       @altura = altura
