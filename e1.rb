@@ -1,3 +1,6 @@
+=begin
+
+=end
 # Clase Circulo que representa a un Circulo sencillo
 class Circulo
 
@@ -12,7 +15,11 @@ class Circulo
 
   # Metodo que permite colocar el radio al Circulo
   def set_radio radio
-    @radio = radio
+    if radio <= 0
+      raise 'Radio Invalido'
+    else
+      @radio = radio
+    end
   end
 
   # Metodo que permite obtener el radio del Circulo
@@ -41,7 +48,11 @@ class Cilindro < Circulo
 
   # Metodo que permite colocar la altura al Cilindro
   def set_altura altura
-    @altura = altura
+    if altura <= 0
+      raise 'Altura Invalido'
+    else
+      @altura = altura
+    end
   end
 
   # Metodo que retorna la altura del Cilindro
@@ -51,7 +62,7 @@ class Cilindro < Circulo
 
   # Metodo que calcula y retorna el volumen del Cilindro
   def volumen
-    Math::PI*(@radio**2)*@altura
+    self.area*@altura
   end
 end
 
