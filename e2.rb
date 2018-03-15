@@ -1,5 +1,5 @@
 =begin
-  Ejercicio #2 de La Tarea 1 sobre Ruby
+  Ejercicio #2 de La Tarea sobre Ruby
   Autores: Andrés Buelvas 13-10184
           Miguel Canedo 13-10214
   Fecha: 14/03/18
