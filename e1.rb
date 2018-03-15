@@ -1,5 +1,7 @@
+# Clase Circulo que representa a un Circulo sencillo
 class Circulo
-  # Constructor
+
+  # Constructor de la clase Circulo
   def initialize radio
     if radio <= 0
       raise 'Radio Invalido'
@@ -7,22 +9,27 @@ class Circulo
       @radio = radio
     end
   end
-  # Set radio
+
+  # Metodo que permite colocar el radio al Circulo
   def set_radio radio
     @radio = radio
   end
-  # Get radio
+
+  # Metodo que permite obtener el radio del Circulo
   def get_radio
     return @radio
   end
-  # Area del circulo
+
+  # Metodo que calcula y retorna el area del Circulo
   def area
     return 3.14 * (@radio**2)
   end
 end
 
+# Clase Cilindro que representa a un Cilindro
 class Cilindro < Circulo
-  # Constructor
+
+  # Constructor de la Clase Cilindro
   def initialize radio, altura
     super radio
     if altura <= 0
@@ -31,20 +38,24 @@ class Cilindro < Circulo
       @altura = altura
     end
   end
-  # Set altura
+
+  # Metodo que permite colocar la altura al Cilindro
   def set_altura altura
     @altura = altura
   end
+
+  # Metodo que retorna la altura del Cilindro
   def get_altura
     return @altura
   end
-  # Volumen del cilindro
+
+  # Metodo que calcula y retorna el volumen del Cilindro
   def volumen
     return 3.14*(@radio**2)*@altura
   end
 end
 
-# Probando
+# Corrida del Programa
 c1 = Circulo.new 5
 c2 = Circulo.new 2.5
 cl1 = Cilindro.new 3, 4

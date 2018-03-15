@@ -1,14 +1,56 @@
+# Modulo DFS donde se generalizan dos metodos para las clases
+# ArbolBinario y GrafoDirigido.
 module DFS
-  def dfs grafo
-    hola
+  # Metodo que se encarga de buscar en la estructura, comenzando desde 'start',
+  # el primer elemento que cumpla el 'predicate' y lo devuelve.
+  # En caso de que nadie cumpla el 'predicate', retorna 'nil'.
+  def find(start, predicate, visited = [])
+    visited << start	 # Marcamos a 'start' como visitado.
+    encontrado = nil
+
+    # Si 'start' cumple la condicion del predicate, lo retornamos a el.
+    if predicate.call(start.dato)
+      return start.dato
+    end
+
+    # Recorremos todos los nodos o vertices que le siguen a 'start'.
+    start.siguientes.each do |n|
+      next if visited.include?(n)		# Si fue visitado se ignora.
+      if n
+        encontrado = find(n, predicate, visited)	# Se sigue la recursion ahora con 'n' como 'start'.
+      end
+    end
+
+    # Retornamos el vertice o nodo encontrado, o 'nil'.
+    encontrado
   end
 
-  def find start, predicate
-    hola
-  end
+  # Metodo que se encarga de buscar en la estructura, comenzando desde 'start',
+  # el primer elemento que cumpla el 'predicate' y devuelve el camino hacia el mismo.
+  # En caso de que nadie cumpla el 'predicate', retorna 'nil'.
+  def path(start, predicate, visited = [], p = [])
+    pEncontrado = nil
+    visited << start	# Marcamos a 'start' como visitado.
 
-  def path start, predicate
-    hola
+    # Agregamos el vertice 'start' al camino.
+    pathNuevo = p.clone()
+    pathNuevo << start
+
+    # Si 'start' cumple la condicion del predicate, se retorna el camino encontrado hasta el.
+    if predicate.call(start.dato)
+      return pathNuevo
+    end
+
+    # Recorremos todos los nodos o vertices que le siguen a 'start'.
+    start.siguientes.each do |n|
+      next if visited.include?(n) 	# Si fue visitado se ignora.
+      if n
+        pEncontrado = path(n, predicate, visited, pathNuevo)	# Se sigue la recursion ahora con 'n' como 'start'.
+      end
+    end
+
+    # Retornamos el camino encontrado, o 'nil'.
+    pEncontrado
   end
 end
 
@@ -137,13 +179,13 @@ class GrafoDirigido
 
   # Metodo que devuleve la representacion en String de la clase GrafoNoDirigido.
   def to_s
-    s = "Grafo No Dirigido: "
+    s = "Grafo Dirigido: "
     vertices.each { |v| s += v.to_s }
     s
   end
 end
 
-# Probando
+# Corrida del programa
 
 ###  Arbol Binario.
 arbol = ArbolBinario.new()
@@ -164,7 +206,7 @@ grafo.agregarVertice(2)
 grafo.agregarVertice(3)
 grafo.agregarVertice(4)
 
-# Lados
+# Aristas
 grafo.agregarLado(6,4)
 grafo.agregarLado(6,3)
 grafo.agregarLado(2,4)
